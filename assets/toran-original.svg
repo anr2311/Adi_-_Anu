@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 275" fill="none" role="img" aria-label="Floral and gold South Indian toran ornament">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#f8eac0"/><stop offset=".44" stop-color="#bb8f45"/><stop offset="1" stop-color="#8a5426"/>
+    </linearGradient>
+    <linearGradient id="marigold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffe0a0"/><stop offset=".5" stop-color="#d68b32"/><stop offset="1" stop-color="#963b20"/>
+    </linearGradient>
+    <g id="flower"><circle r="12" fill="url(#marigold)"/><g fill="#edb052" stroke="#b66c2b" stroke-width="1.1"><ellipse rx="5" ry="13" cy="-9"/><ellipse rx="5" ry="13" cy="9"/><ellipse rx="13" ry="5" cx="-9"/><ellipse rx="13" ry="5" cx="9"/><ellipse rx="5" ry="13" cy="-6" transform="rotate(45)"/><ellipse rx="5" ry="13" cy="-6" transform="rotate(-45)"/></g><circle r="5" fill="#7d2225"/><circle r="2.2" fill="#f3d995"/></g>
+    <g id="leaf"><path d="M0 0Q-31-27-48-11Q-27 7 0 0Z" fill="#53634a"/><path d="M0 0Q31-27 48-11Q27 7 0 0Z" fill="#6d784f"/></g>
+    <g id="bell"><path d="M-9-25Q-18-6-17 4L-24 13H24L17 4Q18-6 9-25Z" fill="url(#gold)" stroke="#875729" stroke-width="2"/><ellipse cy="14" rx="26" ry="5" fill="#be9251"/><circle cy="23" r="6" fill="#8a5426"/><path d="M0-42V-24" stroke="#91652e" stroke-width="3"/></g>
+  </defs>
+  <path d="M0 0H1200V13H0Z" fill="#77442b"/>
+  <path d="M0 16H1200" stroke="#e2bb75" stroke-width="6"/>
+  <path d="M0 23H1200" stroke="#ad813d" stroke-width="3"/>
+  <path d="M0 28Q150 172 300 32Q450 172 600 35Q750 172 900 32Q1050 172 1200 28" stroke="#536142" stroke-width="14"/>
+  <path d="M0 33Q150 177 300 37Q450 177 600 40Q750 177 900 37Q1050 177 1200 33" stroke="#b68538" stroke-width="3"/>
+  <g opacity=".98">
+    <use href="#flower" x="44" y="63"/><use href="#leaf" x="88" y="91"/><use href="#flower" x="130" y="112"/><use href="#flower" x="172" y="111"/><use href="#leaf" x="212" y="89"/><use href="#flower" x="253" y="63"/>
+    <use href="#flower" x="344" y="61"/><use href="#leaf" x="386" y="91"/><use href="#flower" x="430" y="116"/><use href="#flower" x="470" y="115"/><use href="#leaf" x="516" y="93"/><use href="#flower" x="558" y="66"/>
+    <use href="#flower" x="644" y="66"/><use href="#leaf" x="684" y="94"/><use href="#flower" x="730" y="114"/><use href="#flower" x="774" y="113"/><use href="#leaf" x="815" y="90"/><use href="#flower" x="860" y="62"/>
+    <use href="#flower" x="945" y="64"/><use href="#leaf" x="988" y="92"/><use href="#flower" x="1030" y="112"/><use href="#flower" x="1071" y="110"/><use href="#leaf" x="1116" y="91"/><use href="#flower" x="1158" y="63"/>
+  </g>
+  <g stroke="#9d6c2e" stroke-width="2"><path d="M300 28V174M600 34V205M900 28V174"/></g>
+  <use href="#bell" x="300" y="204"/><use href="#bell" x="600" y="236"/><use href="#bell" x="900" y="204"/>
+  <g fill="#7e2928"><path d="M292 120L300 137L308 120Z"/><path d="M592 145L600 162L608 145Z"/><path d="M892 120L900 137L908 120Z"/></g>
+</svg>
