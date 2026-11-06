@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Aditya & Anushree — Wedding Invitation</title>
+  <meta name="description" content="Join us in celebrating the union of Aditya and Anushree. A sacred South Indian wedding celebration.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+
+  <!-- Social Meta tags -->
+  <meta property="og:title" content="Aditya & Anushree Wedding Invitation">
+  <meta property="og:description" content="13–14 December 2026 — Shivamogga. Please join us for our special day.">
+  <meta property="og:image" content="./wedding-portrait.jpg">
+  <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Kannada:wght@400;600;700&family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS VARIABLES
+   ============================================================ */
+:root {
+  --deep-ruby:    #1e0000;
+  --royal-red:    #5a0001;
+  --vermilion:    #C0392B;
+  --gold-antique: #b38b2d;
+  --gold-leaf:    #D4AF37;
+  --gold-bright:  #FFD700;
+  --gold-pale:    #F3E5AB;
+  --ivory-warm:   #FFF9E3;
+  --parchment:    #FCF5E5;
+  --text-ruby:    #1a0505;
+  --text-sepia:   #4a3728;
+  --text-mid:     #6b4f4f;
+  --gold:         #D4AF37;
+  --deep-red:     #8B0000;
+  --cream-dark:   #E5D9B6;
+  --glass-bg:     rgba(30, 0, 0, 0.65);
+  --glass-border: rgba(212, 175, 55, 0.35);
+  --shadow-gold:  rgba(212,175,55,0.3);
+  --shadow-ruby:  rgba(44,0,0,0.5);
+  --section-bg:   #fffcf5;
+
+  --font-heading:    'Cinzel Decorative', cursive;
+  --font-subheading: 'Cinzel', serif;
+  --font-body:       'Lora', serif;
+  --font-accent:     'Philosopher', serif;
+  --font-names:      'Pinyon Script', cursive;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+body {
+  background: var(--ivory-warm);
+  color: var(--text-ruby);
+  font-family: var(--font-body);
+  overflow-x: clip;
+  max-width: 100vw;
+}
+img { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; background: none; }
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+#progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--vermilion), var(--gold-leaf), var(--gold-bright));
+  z-index: 9999; transition: width 0.1s linear;
+  box-shadow: 0 0 10px var(--gold-leaf);
+}
+
+/* ============================================================
+   MUSIC BUTTON
+   ============================================================ */
+#music-btn {
+  position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1000;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  color: var(--gold-pale); font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#music-btn:hover { transform: scale(1.12) rotate(15deg); box-shadow: 0 6px 28px var(--shadow-gold); }
+#music-btn.playing { animation: pulse-music 2s infinite; }
+@keyframes pulse-music {
+  0%   { box-shadow: 0 0 0 0   rgba(212,175,55,0.6); }
+  70%  { box-shadow: 0 0 0 15px rgba(212,175,55,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(212,175,55,0);   }
+}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+@media screen {
+  [data-fade="waiting"]:not(:focus-within) {
+    opacity: 0 !important;
+    transition: none !important;
+  }
+  [data-fade="entering"]:not(:focus-within) {
+    animation: invitation-fade-in 1.8s ease-in-out var(--entry-delay, 0ms) backwards;
+  }
+}
+@media screen {
+  [data-scroll-fade]:not(:focus-within) {
+    filter: opacity(var(--scroll-opacity, 0));
+    transition: filter 650ms ease-out;
+  }
+}
+@keyframes invitation-fade-in {
+  from { opacity: 0; }
+}
+/* Only cover the page once the opening button is operational. */
+html:not(.doors-ready) #door-cover { display: none; }
+
+/* ============================================================
+   GOLD DIVIDER
+   ============================================================ */
+.gold-divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; margin: 2.5rem auto; max-width: 500px;
+}
+.gold-divider::before,
+.gold-divider::after {
+  content: ''; flex: 1; height: 1px;
+}
+.gold-divider::before { background: linear-gradient(90deg, transparent, var(--gold-leaf)); }
+.gold-divider::after  { background: linear-gradient(90deg, var(--gold-leaf), transparent); }
+.gold-divider span    { color: var(--gold-antique); font-size: 1.4rem; filter: drop-shadow(0 0 5px var(--shadow-gold)); }
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: var(--royal-red);
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-shadow: 2px 2px 0 rgba(212,175,55,0.1);
+  margin-bottom: 0.5rem;
+}
+.section-subtitle {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--text-sepia);
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+  opacity: 0.82;
+}
+.kannada-text {
+  font-family: 'Noto Serif Kannada', serif;
+  font-size: 1.05rem;
+  color: var(--vermilion);
+  text-align: center;
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+   DOOR COVER
+   ============================================================ */
+#door-cover {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; width: 100vw; height: 100vh; height: 100dvh;
+  transition: opacity 1.5s ease 0.5s, visibility 1.5s ease 0.5s;
+}
+.door-left, .door-right {
+  position: absolute; top: 0; width: 50%; height: 100%;
+  transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform; overflow: hidden;
+  background: #1a0000; /* solid fallback so hero never bleeds through */
+}
+.door-left  { left: 0;  transform-origin: left;  }
+.door-right { right: 0; transform-origin: right; }
+
+/* Each silk leaf carries its own border and foiled lotus spray. */
+.door-panel {
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(31deg, transparent 0 2px, #ffb99208 3px, transparent 4px),
+    repeating-linear-gradient(119deg, transparent 0 1px, #14030820 2px, transparent 3px),
+    radial-gradient(ellipse at 22% 38%, #85253b, #5d0f25 58%, #370a18);
+  box-shadow: inset 0 0 3vw #23040d88;
+}
+.door-right .door-panel { transform: scaleX(-1); }
+.door-panel::before {
+  content: ''; position: absolute;
+  inset: clamp(10px, 2vmin, 24px) 0 clamp(10px, 2vmin, 24px) clamp(10px, 2vmin, 24px);
+  border: 4px double #d4af66; border-right: 0;
+}
+.door-panel::after {
+  content: ''; position: absolute; inset: 0 0 0 auto; width: 2px;
+  background: linear-gradient(to right, #c3984b80, #290411);
+}
+.gate-lotuses {
+  position: absolute; left: max(15px, 3vmin); bottom: max(15px, 3vmin);
+  width: min(77%, 39vh, 330px); height: auto; color: #dab36c;
+}
+#door-cover.open .door-left  { transform: perspective(1200px) rotateY(-90deg); }
+#door-cover.open .door-right { transform: perspective(1200px) rotateY(90deg);  }
+#door-cover.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.door-enter-content {
+  position: relative; z-index: 10001;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2.2rem; transition: opacity 0.8s ease;
+  text-align: center; padding: 2rem;
+  width: 100%; max-width: 1200px; height: 100%;
+}
+.door-enter-content::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw; height: 150vw;
+  background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 60%);
+  pointer-events: none; z-index: -1;
+}
+.door-welcome-text {
+  font-family: var(--font-names);
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  color: #fff;
+  text-shadow: 0 5px 30px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8);
+  filter: drop-shadow(0 0 20px rgba(212,175,55,0.5));
+  transition: opacity 0.5s, transform 0.5s;
+  line-height: 1.1;
+}
+.door-tagline {
+  font-family: var(--font-subheading);
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  color: var(--gold-pale);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: -1rem;
+}
+#open-door-btn {
+  padding: 1rem 3.5rem; font-size: 0.95rem;
+  background: rgba(40,0,0,0.9);
+  color: var(--gold-bright);
+  border: 1px solid var(--gold-bright);
+  font-family: var(--font-subheading); text-transform: uppercase;
+  letter-spacing: 0.35em; font-weight: 500;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 20px rgba(212,175,55,0.4);
+  -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px);
+  border-radius: 4px;
+  animation: etherealPulse 2s infinite alternate;
+  margin-top: 5vh;
+}
+@keyframes etherealPulse {
+  from { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 10px rgba(212,175,55,0.2); }
+  to   { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 25px rgba(212,175,55,0.5); transform: scale(1.02); }
+}
+
+/* ============================================================
+   1. HERO SECTION
+   ============================================================ */
+#hero {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  color: #ffe8ac;
+  font-family: Georgia, serif;
+  background: radial-gradient(ellipse at 27% 47%, #752832, #360912 62%, #240609);
+}
+.hero-photo {
+  transform: translateX(8%);
+  position: absolute;
+  inset: 0 0 0 auto;
+  height: 100%;
+  width: 57%;
+  object-fit: cover;
+  object-position: center 56%;
+  mask-image: linear-gradient(to right, transparent, #0003 12%, #000b 30%, black 47%);
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: clamp(12px, 2vw, 20px);
+  border: 1px solid #d9b27188;
+  outline: 1px solid #d9b27155;
+  outline-offset: 5px;
+  pointer-events: none;
+}
+.hero-copy {
+  position: absolute;
+  left: 4%;
+  width: 44%;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+.hero-intro { font-size: clamp(12px, 1.5vw, 18px); letter-spacing: .16em; }
+.hero-title {
+  margin: 20px 0;
+  color: #ffe9b9;
+  font: italic clamp(32px, 6.72vw, 86px)/1.06 Georgia, serif;
+}
+.hero-weds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .58em;
+  margin: .77em 0;
+  color: #e0bd7b;
+  font: italic clamp(16px, 2.1vw, 26px) Georgia, serif;
+}
+.hero-weds::before, .hero-weds::after {
+  content: '';
+  width: 2.38em;
+  height: 1px;
+  background: #c99b60;
+}
+.hero-date { margin-top: 32px; font-size: clamp(10px, 1.2vw, 15px); letter-spacing: .2em; }
+
+
+/* ============================================================
+   2. INVITATION
+   ============================================================ */
+#invitation {
+  background: #fffaee;
+  padding: 7rem 2rem;
+  position: relative; overflow: clip;
+}
+#invitation::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23D4AF37' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.invite-card {
+  max-width: 900px; margin: 0 auto;
+  background: var(--gold-pale);
+  border: 6px solid var(--gold-antique);
+  outline: 2px solid rgba(212,175,55,0.5);
+  outline-offset: -10px;
+  padding: clamp(2.5rem, 6vw, 5.5rem);
+  position: relative;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+  text-align: center;
+  z-index: 2; border-radius: 4px; overflow: hidden;
+  transition: box-shadow 0.55s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.55s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.55s;
+}
+/* Both spindles frame the parchment even when motion is disabled. */
+.invitation-scroll {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.invitation-scroll .invite-card {
+  background: linear-gradient(90deg, #e8ce92, #fff3cd 8%, #fff8e4 50%, #fff3cd 92%, #e8ce92);
+}
+.invitation-scroll::before, .invitation-scroll::after {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  left: -9px;
+  right: -9px;
+  height: clamp(14px, 2vw, 22px);
+  border: 1px solid #805423;
+  border-radius: 8px;
+  transform: translateY(-50%);
+  background:
+    linear-gradient(90deg, #976320, #ffe19b 1%, #84521d 2%, transparent 3% 97%, #84521d 98%, #ffe19b 99%, #976320),
+    linear-gradient(#92652a, #ebcf91 20%, #fff2c8 34%, #d6b16c 65%, #805323);
+  box-shadow: 0 3px 6px #60381140;
+  pointer-events: none;
+}
+.invitation-scroll::before { top: 0; }
+.invitation-scroll::after { top: 100%; }
+
+.invite-card::before { content: '❧'; position: absolute; top: 1rem; left: 1.2rem; font-size: 1.8rem; color: var(--gold); line-height: 1; }
+.invite-card::after  { content: '❧'; position: absolute; bottom: 1rem; right: 1.2rem; font-size: 1.8rem; color: var(--gold); line-height: 1; transform: rotate(180deg); }
+.corner-ornament     { position: absolute; font-size: 1.8rem; color: var(--gold); line-height: 1; }
+.corner-ornament.tr  { top: 1rem; right: 1.2rem; transform: scaleX(-1); }
+.corner-ornament.bl  { bottom: 1rem; left: 1.2rem; transform: scaleY(-1); }
+
+.invite-blessing { font-family: 'Noto Serif Kannada', serif; font-size: 1.8rem; color: var(--vermilion); margin-bottom: 0.4rem; letter-spacing: 0.08em; }
+.invite-blessing-sub { font-family: var(--font-accent); font-style: italic; color: var(--text-sepia); font-size: 1rem; margin-bottom: 2.5rem; opacity: 0.8; }
+.invite-text { font-family: var(--font-body); font-size: clamp(1rem, 2.2vw, 1.2rem); line-height: 2.2; color: var(--text-ruby); margin-bottom: 2rem; }
+.invite-parents { font-family: var(--font-subheading); font-size: clamp(0.88rem, 1.8vw, 1.05rem); color: var(--royal-red); letter-spacing: 0.04em; line-height: 2.2; margin: 2rem 0; }
+.invite-parents .parent-group { margin: 1rem 0; }
+.invite-couple-name { font-family: var(--font-names); font-size: clamp(2rem, 7.5vw, 3.5rem); color: var(--deep-red); line-height: 1.2; font-weight: 400; word-break: break-word; }
+.invite-welcome { font-family: var(--font-accent); font-style: italic; font-size: 1.25rem; color: var(--vermilion); margin-top: 2rem; line-height: 1.8; }
+
+/* ============================================================
+   3. EVENTS
+   ============================================================ */
+#events {
+  background: linear-gradient(180deg, var(--section-bg) 0%, var(--parchment) 100%);
+  padding: 7rem 2rem;
+}
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.2rem;
+  max-width: 1200px; margin: 4rem auto 0;
+}
+.event-card {
+  background: var(--ivory-warm);
+  border: 1px solid var(--gold-pale);
+  padding: 2.8rem 2.2rem;
+  position: relative;
+  transition: all 0.48s cubic-bezier(0.4, 0, 0.2, 1);
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+}
+.event-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--vermilion), var(--gold-leaf));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.48s ease;
+}
+.event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(44,0,0,0.1);
+  background: linear-gradient(145deg, #fff8f0, #fef3e0);
+}
+.event-card:hover::after { transform: scaleX(1); }
+.event-card .card-corner {
+  position: absolute; top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid; border-width: 0 24px 24px 0;
+  border-color: transparent var(--gold) transparent transparent; z-index: 2;
+}
+.event-icon       { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+.event-name       { font-family: var(--font-subheading); font-size: 1.15rem; font-weight: 600; color: var(--deep-red); letter-spacing: 0.05em; margin-bottom: 0.4rem; transition: color 0.35s; }
+.event-name-kannada { font-family: 'Noto Serif Kannada', serif; font-size: 0.82rem; color: var(--text-mid); margin-bottom: 0.7rem; transition: color 0.35s; }
+.event-date       { font-family: var(--font-body); font-size: 0.86rem; font-weight: 600; color: var(--vermilion); margin-bottom: 0.5rem; }
+.event-desc       { font-family: var(--font-accent); font-style: italic; font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; }
+
+/* ============================================================
+   4. COUPLE
+   ============================================================ */
+#couple {
+  background: var(--deep-ruby);
+  padding: 7rem 2rem; position: relative; overflow: hidden;
+}
+#couple::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 5 L43 15 L53 15 L45 22 L48 32 L40 26 L32 32 L35 22 L27 15 L37 15 Z' fill='%23D4AF37' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 80px 80px; pointer-events: none;
+}
+.couple-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 4rem; max-width: 1100px;
+  margin: 4rem auto 0; align-items: center;
+}
+.photo-frame {
+  width: clamp(190px, 26vw, 270px);
+  height: clamp(240px, 33vw, 350px);
+  margin: 0 auto 1.5rem; position: relative;
+}
+.photo-frame::before {
+  content: ''; position: absolute;
+  top: -8px; left: -8px; width: 30px; height: 30px;
+  border: 2px solid var(--gold-leaf);
+  border-right: none; border-bottom: none; z-index: 2;
+}
+.photo-frame::after {
+  content: ''; position: absolute;
+  bottom: -8px; right: -8px; width: 30px; height: 30px;
+  border: 2px solid var(--gold-leaf);
+  border-left: none; border-top: none; z-index: 2;
+}
+.photo-frame-inner {
+  width: 100%; height: 100%;
+  background: linear-gradient(145deg, #1a0000, #3d0000);
+  border: 1px solid var(--gold-antique);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+/* only one pseudo-element on inner now – corner star */
+.photo-frame-inner::before {
+  content: '✦';
+  position: absolute; top: 0.5rem; left: 0.5rem;
+  font-size: 1.1rem; color: var(--gold); line-height: 1; z-index: 1;
+}
+.photo-frame-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+
+.person-card { text-align: center; }
+.person-name   { font-family: var(--font-heading); font-size: clamp(1.3rem, 3.5vw, 2rem); color: var(--gold-pale); margin-bottom: 0.7rem; }
+.person-family { font-family: var(--font-body); font-size: 0.92rem; color: var(--gold-antique); margin-bottom: 1rem; letter-spacing: 0.1em; }
+.person-quote  { font-family: var(--font-accent); font-style: italic; font-size: 1rem; color: var(--ivory-warm); line-height: 1.8; opacity: 0.85; }
+
+.couple-center { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+.couple-symbol { font-family: var(--font-heading); font-size: clamp(2.5rem, 5.5vw, 4.5rem); color: var(--gold-leaf); text-shadow: 0 0 30px rgba(212,175,55,0.4); }
+.couple-center-divider { width: 1px; height: 80px; background: linear-gradient(180deg, transparent, var(--gold), transparent); }
+
+/* ============================================================
+   6. DETAILS
+   ============================================================ */
+#details { background: var(--ivory-warm); padding: 7rem 2rem; }
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 2rem; margin: 4rem auto 0;
+}
+.detail-card:only-child { grid-column: 1 / -1; }
+.detail-card {
+  background: var(--parchment);
+  border: 1px solid var(--gold-pale);
+  border-top: 4px solid var(--vermilion);
+  padding: 2.4rem 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+.detail-card:hover { transform: translateY(-8px); box-shadow: 0 16px 38px rgba(44,0,0,0.09); }
+.detail-icon  { font-size: 2.2rem; margin-bottom: 0.8rem; display: block; }
+.detail-title { font-family: var(--font-subheading); font-size: 0.82rem; font-weight: 700; color: var(--deep-red); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.detail-text  { font-family: var(--font-accent); font-size: 0.94rem; color: var(--text-mid); line-height: 1.75; }
+.detail-text strong { color: var(--deep-red); font-family: var(--font-subheading); }
+.hashtag-text { font-family: var(--font-heading); font-size: 1.05rem; color: var(--vermilion); }
+
+/* ============================================================
+   7. COUNTDOWN
+   ============================================================ */
+#countdown {
+  padding: 3rem 1rem;
+  background: #fbf2df;
+  text-align: center;
+}
+.countdown-card {
+  max-width: 530px;
+  margin: 0 auto;
+  padding: 13px clamp(8px, 3vw, 24px) 15px;
+  color: #fff4db;
+  font-family: Georgia, serif;
+  background: linear-gradient(110deg, #681426, #84263b, #681426);
+  border: 4px double #dbb963;
+  outline: 1px solid #9a692c;
+  border-radius: 20px 7px 20px 7px;
+  box-shadow: 0 8px 20px #5b2d2222;
+}
+.countdown-timer { display: flex; justify-content: center; }
+.time-unit { flex: 0 1 82px; display: flex; flex-direction: column; border-right: 1px solid #d5b77e; }
+.time-unit:last-child { border: 0; }
+.time-number { font-size: clamp(24px, 3vw, 34px); line-height: 1.05; font-weight: 500; font-variant-numeric: tabular-nums; }
+.time-label { font-size: clamp(12px, 2vw, 14px); }
+.countdown-done { display: none; }
+
+/* ============================================================
+   THANK YOU PARALLAX
+   ============================================================ */
+#thank-you-parallax {
+  position: relative; height: 70vh; min-height: 20rem;
+  display: flex; align-items: center; justify-content: flex-end; overflow: hidden;
+  background: var(--deep-ruby);
+}
+.ty-photo {
+  position: absolute; inset: 0 auto 0 0;
+  width: 71%; height: 100%; object-fit: cover; object-position: 53% center;
+  transform: translateX(-13%);
+  opacity: .85;
+  mask-image: linear-gradient(to right, black 45%, transparent 100%);
+}
+.ty-content {
+  position: relative; width: 46%; text-align: right;
+  padding: 1rem clamp(1.1rem, 6vw, 6rem) 1rem 0;
+}
+.ty-content h2 { font-family: var(--font-names); font-size: clamp(3.8rem, 10vw, 7rem); color: #fff; text-shadow: 0 4px 22px rgba(0,0,0,0.65); margin-bottom: 1rem; font-weight: 400; }
+.ty-content p  { font-family: var(--font-subheading); font-size: clamp(0.9rem, 2.5vw, 1.7rem); color: var(--gold-pale); letter-spacing: 0.1em; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+
+/* ============================================================
+   8. FOOTER
+   ============================================================ */
+#footer {
+  background: var(--deep-ruby); padding: 5rem 2rem 3rem;
+  text-align: center; border-top: 1px solid rgba(212,175,55,0.2);
+}
+.footer-names { font-family: var(--font-heading); font-size: clamp(1.4rem, 4.5vw, 2.4rem); color: var(--gold-leaf); margin-bottom: 0.8rem; }
+.footer-date  { font-family: var(--font-subheading); font-size: 0.95rem; letter-spacing: 0.25em; color: var(--gold-pale); margin-bottom: 2.5rem; opacity: 0.7; }
+.footer-social { display: flex; gap: 1.2rem; justify-content: center; margin-bottom: 2.5rem; }
+.social-link {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(201,148,42,0.4); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-pale); text-decoration: none; font-size: 1rem;
+  transition: all 0.3s;
+}
+.social-link:hover { background: rgba(201,148,42,0.15); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+.footer-copy { font-family: var(--font-body); font-size: 0.78rem; color: var(--cream-dark); opacity: 0.42; font-style: italic; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .events-grid  { grid-template-columns: 1fr 1fr; }
+  .details-grid { grid-template-columns: 1fr 1fr; }
+  .invite-card  { padding: 2.5rem 1.5rem; }
+
+}
+@media (max-width: 600px) {
+  .events-grid  { grid-template-columns: 1fr; }
+  .details-grid { grid-template-columns: 1fr; }
+  .invite-card  { padding: 2.5rem 1.5rem; }
+  .couple-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+  .couple-center  { order: 2; flex-direction: row; width: 100%; justify-content: center; }
+  .couple-center-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .couple-symbol { font-size: 2.5rem; }
+  .person-card.reveal-right { order: 3; }
+  .person-card   { text-align: center; max-width: 400px; margin: 0 auto; }
+
+  .door-welcome-text { font-size: clamp(2.2rem, 9vw, 3.5rem); text-align: center; padding: 0 1.5rem; width: 100%; }
+  #open-door-btn { padding: 1rem 2.5rem; font-size: 0.85rem; letter-spacing: 0.2em; margin-top: 3vh; }
+  #music-btn { bottom: 1.2rem; left: 1.2rem; width: 42px; height: 42px; }
+}
+@media (max-width: 400px) {
+  .details-grid { grid-template-columns: 1fr; }
+}
+@media (orientation: portrait) and (max-width: 1024px) {
+  .door-enter-content {
+    justify-content: flex-start;
+    padding: max(3rem, 8svh) 1rem 1.5rem;
+    gap: 1.25rem;
+  }
+  .door-tagline { margin: 0; letter-spacing: .18em; }
+  #open-door-btn { margin-top: .5rem; }
+
+  #hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100svh;
+  }
+  .hero-copy {
+    position: relative;
+    inset: auto;
+    transform: none;
+    order: -1;
+    width: 100%;
+    padding: max(2rem, 5svh) 1.5rem .75rem;
+  }
+  .hero-title { font-size: clamp(2.3rem, 8vw, 4.8rem); margin: .24em 0; }
+  .hero-weds { margin: .08em 0; }
+  .hero-date { margin: .75rem 0 0; font-size: clamp(.72rem, 2.4vw, .95rem); }
+  .hero-photo {
+    position: relative;
+    inset: auto;
+    transform: none;
+    width: 100%;
+    height: clamp(20rem, 62svh, 54rem);
+    flex: 1 0 auto;
+    object-position: center 57%;
+    mask-image: linear-gradient(to bottom, transparent, black 17%);
+  }
+  #invitation, #events, #couple, #details, #countdown { padding: 3rem 1rem; }
+  .events-grid, .details-grid, .couple-wrapper { margin-top: 1.75rem; }
+  .ty-content h2 { font-size: clamp(2.35rem, 9vw, 5rem); }
+  .ty-photo { object-position: 60% center; width: 65%; transform: translateX(-9%); }
+  #thank-you-parallax { height: clamp(20rem, 78vw, 32rem); }
+}
+#portrait-viewer {
+  position: fixed; inset: 0; margin: 0; width: 100%; height: 100%;
+  max-width: none; max-height: none; border: 0; padding: 0; background: #15090d;
+}
+body:has(#portrait-viewer[open]) { overflow: hidden; }
+.photo-frame-inner { padding: 0; cursor: zoom-in; }
+.portrait-close { position: relative; display: block; width: 100%; height: 100%; cursor: zoom-out; }
+.portrait-close img { display: block; width: 100%; height: 100%; object-fit: contain; transform-origin: top left; }
+#portrait-caption {
+  position: absolute; inset: 0 0 auto; padding: max(1.5rem, env(safe-area-inset-top)) 1rem 2.5rem;
+  color: #ffebbb; font: clamp(2rem, 6vw, 4rem) var(--font-names);
+  text-shadow: 0 2px 10px #210a0c; background: linear-gradient(#18090bbb, transparent);
+  opacity: .88;
+}
+@media (prefers-reduced-motion: no-preference) {
+  #portrait-viewer[open] #portrait-caption { animation: invitation-fade-in .7s ease-out; }
+}
+/* Center the gatefold inscription independently of the portrait hero. */
+#door-cover .door-enter-content {
+  justify-content: center; padding: 2rem 1rem; gap: clamp(1rem, 2.8vh, 1.8rem);
+}
+#door-cover .door-welcome-text {
+  color: #ffeac0; font-family: var(--font-names), Georgia, serif;
+  font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 400;
+  text-shadow: 0 2px 8px #370a18; filter: none;
+}
+#door-cover .door-tagline { margin: 0; letter-spacing: .15em; }
+#door-cover #open-door-btn {
+  margin-top: .45rem; border-radius: 3rem; padding: .8rem 2rem;
+  background: linear-gradient(#ffedbd, #dcb876); color: #492315;
+  text-transform: none; letter-spacing: .05em; animation: none;
+  box-shadow: 0 3px 15px #33051077; backdrop-filter: none;
+}
+.gate-seal { width: 48px; color: #e5c482; }
+#door-cover.open .gate-seal { opacity: 0; transition: opacity .35s; }
+</style>
+</head>
+<body>
+
+<!-- =================== DOOR COVER =================== -->
+<div id="door-cover">
+  <div class="door-left"><div class="door-panel"><svg class="gate-lotuses" aria-hidden="true" viewBox="0 0 170 190" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 186 Q51 141 38 66 M7 185 Q75 158 105 111 M9 185 Q31 142 20 115 M51 154 Q76 146 78 127 Q57 132 51 154Z M35 137 Q12 129 10 107 Q32 115 35 137Z"/>
+      <path transform="translate(38 55) rotate(-14) scale(1.22)" d="M0 10 Q-18 4 -23 -10 Q-9 -11 0 6 Q9 -11 23 -10 Q18 4 0 10Z M0 5 Q-11 -6 0 -21 Q11 -6 0 5Z M-27 -2 Q-18 15 0 12 Q18 15 27 -2"/>
+      <path transform="translate(111 103) rotate(30) scale(.78)" d="M0 10 Q-18 4 -23 -10 Q-9 -11 0 6 Q9 -11 23 -10 Q18 4 0 10Z M0 5 Q-11 -6 0 -21 Q11 -6 0 5Z M-27 -2 Q-18 15 0 12 Q18 15 27 -2"/>
+    </svg></div></div>
+  <div class="door-right"><div class="door-panel"><svg class="gate-lotuses" aria-hidden="true" viewBox="0 0 170 190" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 186 Q51 141 38 66 M7 185 Q75 158 105 111 M9 185 Q31 142 20 115 M51 154 Q76 146 78 127 Q57 132 51 154Z M35 137 Q12 129 10 107 Q32 115 35 137Z"/>
+      <path transform="translate(38 55) rotate(-14) scale(1.22)" d="M0 10 Q-18 4 -23 -10 Q-9 -11 0 6 Q9 -11 23 -10 Q18 4 0 10Z M0 5 Q-11 -6 0 -21 Q11 -6 0 5Z M-27 -2 Q-18 15 0 12 Q18 15 27 -2"/>
+      <path transform="translate(111 103) rotate(30) scale(.78)" d="M0 10 Q-18 4 -23 -10 Q-9 -11 0 6 Q9 -11 23 -10 Q18 4 0 10Z M0 5 Q-11 -6 0 -21 Q11 -6 0 5Z M-27 -2 Q-18 15 0 12 Q18 15 27 -2"/>
+    </svg></div></div>
+  <div class="door-enter-content" id="door-btn-wrapper">
+    <svg class="gate-seal" viewBox="-30 -25 60 43" aria-hidden="true" fill="none" stroke="currentColor"><path d="M0 10 Q-18 4 -23 -10 Q-9 -11 0 6 Q9 -11 23 -10 Q18 4 0 10Z M0 5 Q-11 -6 0 -21 Q11 -6 0 5Z M-27 -2 Q-18 15 0 12 Q18 15 27 -2"/></svg>
+    <div class="door-welcome-text" id="door-welcome-text">Aditya &amp; Anushree</div>
+    <div class="door-tagline" id="door-tagline">13–14 December 2026 · Shivamogga</div>
+    <button id="open-door-btn">Open Invitation</button>
+  </div>
+</div>
+
+<!-- =================== SCROLL PROGRESS =================== -->
+<div id="progress-bar"></div>
+
+<!-- =================== MUSIC BUTTON =================== -->
+<button id="music-btn" type="button" title="Play music" aria-label="Play music">♪</button>
+
+<!-- =================== 1. HERO =================== -->
+<section id="hero" aria-labelledby="hero-title">
+  <img class="hero-photo" src="./aditya-anushree-garden.webp" alt="Aditya and Anushree together in the garden" fetchpriority="high">
+  <div class="hero-copy">
+    <p class="hero-intro">We’re getting married!</p>
+    <h1 class="hero-title" id="hero-title">Aditya <span class="hero-weds">weds</span> Anushree</h1>
+    <p class="hero-date">13–14 DECEMBER 2026</p>
+  </div>
+</section>
+
+<!-- =================== 2. INVITATION =================== -->
+<section id="invitation" aria-label="Wedding invitation">
+  <div class="scroll-track">
+    <div class="invitation-scroll">
+      <div class="invite-card">
+        <span class="corner-ornament tr">❧</span>
+        <span class="corner-ornament bl">❧</span>
+        <div class="invite-blessing">॥ ಶ್ರೀ ಗಣೇಶಾಯ ನಮಃ ॥</div>
+        <div class="gold-divider"><span>✦</span></div>
+        <p class="invite-text">
+          With the blessings of our family, friends and elders, we joyfully invite you and your family to our wedding.
+        </p>
+        <div class="invite-parents">
+
+          <div class="invite-couple-name">Aditya</div>
+          <br>
+          <div style="font-family:'Philosopher',serif;font-style:italic;font-size:1.1rem;color:var(--text-mid)">with</div>
+          <br>
+          <div class="invite-couple-name">Anushree</div>
+
+        </div>
+        <div class="gold-divider"><span>✦</span></div>
+        <p class="invite-welcome">
+          With lots of love and excitement, we invite you to celebrate our special day with us.
+        </p>
+        <div class="kannada-text" style="margin-top:1.2rem">ಸುಖ ಸಮೃದ್ಧಿಯಿಂದ ಬಾಳಿರಿ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 3. EVENTS =================== -->
+<section id="events">
+  <h2 class="section-title reveal">Wedding Celebrations</h2>
+  <div class="section-subtitle reveal">13 &amp; 14 December 2026</div>
+  <div class="gold-divider reveal"><span>✦</span></div>
+  <div class="kannada-text reveal">ವಿವಾಹ ಕಾರ್ಯಕ್ರಮಗಳು</div>
+  <div class="events-grid">
+    <div class="event-card reveal">
+      <div class="card-corner"></div>
+      <span class="event-icon">🌼</span>
+      <div class="event-name">Reception</div>
+      <div class="event-name-kannada" lang="kn">ಆರತಕ್ಷತೆ</div>
+      <div class="event-date">Sunday, 13 December 2026</div>
+      <div class="event-desc">7:30 pm onwards</div>
+    </div>
+    <div class="event-card reveal">
+      <div class="card-corner"></div>
+      <span class="event-icon">🪔</span>
+      <div class="event-name">Muhurtha</div>
+      <div class="event-name-kannada" lang="kn">ವಿವಾಹ ಮುಹೂರ್ತ</div>
+      <div class="event-date">Monday, 14 December 2026</div>
+      <div class="event-desc">11:00 am</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 4. COUPLE =================== -->
+<section id="couple">
+  <h2 class="section-title reveal" style="color:var(--gold-bright)">The Couple</h2>
+  <div class="gold-divider reveal"><span style="color:var(--gold-bright)">✦</span></div>
+  <div class="couple-wrapper">
+    <div class="person-card reveal-left">
+      <div class="photo-frame">
+        <button type="button" class="photo-frame-inner" aria-haspopup="dialog" aria-label="View Aditya’s full portrait">
+          <img src="./aditya-portrait.webp" alt="Portrait of Aditya" loading="lazy">
+        </button>
+      </div>
+      <div class="person-name">Aditya</div>
+      <div class="person-family" lang="kn">ವರ</div>
+    </div>
+    <div class="couple-center">
+      <div class="couple-center-divider"></div>
+      <div class="couple-symbol">❤</div>
+      <div style="font-family:'Noto Serif Kannada',serif;color:var(--gold-pale);font-size:0.9rem;text-align:center;line-height:1.8">
+      </div>
+      <div class="couple-center-divider"></div>
+    </div>
+    <div class="person-card reveal-right">
+      <div class="photo-frame">
+        <button type="button" class="photo-frame-inner" aria-haspopup="dialog" aria-label="View Anushree’s full portrait">
+          <img src="./anushree-portrait.webp" alt="Portrait of Anushree" loading="lazy">
+        </button>
+      </div>
+      <div class="person-name">Anushree</div>
+      <div class="person-family" lang="kn">ವಧು</div>
+    </div>
+  </div>
+</section>
+
+
+<dialog id="portrait-viewer" aria-labelledby="portrait-caption">
+  <button type="button" class="portrait-close" aria-label="Close full-screen portrait">
+    <img alt="">
+    <span id="portrait-caption"></span>
+  </button>
+</dialog>
+
+<!-- =================== 6. DETAILS =================== -->
+<section id="details">
+  <h2 class="section-title reveal">Location</h2>
+  <div class="gold-divider reveal"><span>✦</span></div>
+  <div class="details-grid">
+    <div class="detail-card reveal">
+      <span class="detail-icon">📍</span>
+      <div class="detail-title">Venue</div>
+      <div class="detail-text"><strong>Shubha Mangala Kalyana Mantapa</strong><br>Veera Rani Keladi Chennamma Rd,<br>Netaji Layout, Vinoba Nagara, Shivamogga</div>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=WHV5%2BXVG%2C+Shivamogga%2C+Karnataka+577204">Open in Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 7. COUNTDOWN =================== -->
+<section id="countdown" aria-label="Countdown to the wedding muhurtha on 14 December 2026 at 11 am IST">
+  <h2 class="section-title reveal">Countdown</h2>
+  <div class="gold-divider reveal" aria-hidden="true"><span>✦</span></div>
+  <div class="countdown-card reveal">
+    <div class="countdown-timer" id="timer" role="timer" aria-live="off">
+      <div class="time-unit"><b class="time-number" id="days">--</b><span class="time-label">Days</span></div>
+      <div class="time-unit"><b class="time-number" id="hours">--</b><span class="time-label">Hours</span></div>
+      <div class="time-unit"><b class="time-number" id="minutes">--</b><span class="time-label">Minutes</span></div>
+      <div class="time-unit"><b class="time-number" id="seconds">--</b><span class="time-label">Seconds</span></div>
+    </div>
+    <div class="countdown-done" id="countdownDone">✦ The Wedding Has Begun! ✦</div>
+  </div>
+</section>
+
+<!-- =================== THANK YOU PARALLAX =================== -->
+<section id="thank-you-parallax">
+  <img class="ty-photo" src="./thank-you-portrait.webp" alt="Anushree standing beside Aditya in the courtyard" loading="lazy">
+  <div class="ty-content reveal">
+    <h2>Thank You</h2>
+    <p>We look forward to celebrating with you!</p>
+  </div>
+</section>
+
+<!-- =================== 8. FOOTER =================== -->
+<footer id="footer">
+  <svg viewBox="-155 -32 310 62" width="310" height="62" aria-hidden="true"
+       style="display:block;width:min(100%,310px);height:auto;margin:0 auto 12px"
+       fill="none" stroke="#dab26b" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M-146 2 H-80 M80 2 H146"/>
+    <path d="M0 12 Q-22 3 -31 -14 Q-9 -13 0 8 Q9 -13 31 -14 Q22 3 0 12Z M0 7 Q-14 -6 0 -25 Q14 -6 0 7Z M-29 -1 Q-16 19 0 13 Q16 19 29 -1"/>
+  </svg>
+  <div class="footer-names">Aditya &amp; Anushree</div>
+  <div class="footer-date"> ✦ DECEMBER · 2026 ✦ </div>
+</footer>
+
+<audio id="wedding-music" src="./neene-neene-instrumental.mp3" preload="none" loop></audio>
+
+<script>
+const portraitViewer = document.getElementById('portrait-viewer');
+let portraitMotion = [];
+let portraitClosing = false;
+document.querySelectorAll('.person-card .photo-frame-inner').forEach(button => {
+  button.addEventListener('click', () => {
+    const portrait = button.querySelector('img');
+    const enlarged = portraitViewer.querySelector('img');
+    enlarged.src = portrait.currentSrc || portrait.src;
+    enlarged.alt = portrait.alt;
+    document.getElementById('portrait-caption').textContent =
+      button.closest('.person-card').querySelector('.person-name').textContent;
+    const frame = portrait.getBoundingClientRect();
+    portraitViewer.showModal();
+    if (!enlarged.animate) return;
+
+    // Map the contained full portrait back to its cropped thumbnail.
+    const view = enlarged.getBoundingClientRect();
+    const sourceWidth = portrait.naturalWidth || frame.width;
+    const sourceHeight = portrait.naturalHeight || frame.height;
+    const fit = Math.min(view.width / sourceWidth, view.height / sourceHeight);
+    const width = sourceWidth * fit;
+    const height = sourceHeight * fit;
+    const scale = Math.max(frame.width / width, frame.height / height);
+    const left = frame.left + (frame.width - width * scale) / 2;
+    const top = frame.top + (frame.height - height * scale) * .42;
+    const x = left - (view.width - width) * scale / 2;
+    const y = top - (view.height - height) * scale / 2;
+    const inset = [
+      (frame.top - y) / scale, view.width - (frame.right - x) / scale,
+      view.height - (frame.bottom - y) / scale, (frame.left - x) / scale
+    ].map(value => Math.max(0, value) + 'px').join(' ');
+    const timing = { duration: 900, easing: 'cubic-bezier(.42,0,.2,1)', fill: 'both' };
+    const zoom = enlarged.animate([
+      { transform: `translate(${x}px, ${y}px) scale(${scale})`, clipPath: `inset(${inset})` },
+      { transform: 'none', clipPath: 'inset(0px)' }
+    ], timing);
+    const dim = portraitViewer.animate([{ backgroundColor: 'transparent' }, { backgroundColor: '#15090d' }], timing);
+    portraitMotion = [zoom, dim];
+  });
+});
+async function closePortrait() {
+  if (portraitClosing) return;
+  portraitClosing = true;
+  for (const animation of portraitMotion) {
+    animation.updatePlaybackRate(-1.25);
+    animation.play();
+  }
+  await Promise.allSettled(portraitMotion.map(animation => animation.finished));
+  portraitViewer.close();
+  portraitMotion.forEach(animation => animation.cancel());
+  portraitMotion = [];
+  portraitClosing = false;
+}
+portraitViewer.querySelector('button').addEventListener('click', closePortrait);
+portraitViewer.addEventListener('cancel', event => {
+  event.preventDefault();
+  closePortrait();
+});
+
+/* ========== DOOR CONCEPT ========== */
+(function() {
+  const doorCover      = document.getElementById('door-cover');
+  const openDoorBtn    = document.getElementById('open-door-btn');
+  const doorWelcomeText= document.getElementById('door-welcome-text');
+  const doorTagline    = document.getElementById('door-tagline');
+
+  if (!openDoorBtn) return;
+
+  openDoorBtn.addEventListener('click', () => {
+    // Fade out text
+    openDoorBtn.classList.add('fade-out');
+    if (doorWelcomeText) doorWelcomeText.classList.add('fade-out');
+    if (doorTagline)     doorTagline.classList.add('fade-out');
+
+    // Open doors
+    doorCover.classList.add('open');
+
+    playMusic();
+
+    // Golden light flash
+    const flash = document.createElement('div');
+    Object.assign(flash.style, {
+      position:'fixed', top:'0', left:'0', width:'100%', height:'100vh',
+      background:'radial-gradient(circle at center, rgba(212,175,55,0.4) 0%, transparent 60%)',
+      zIndex:'9998', opacity:'0', transition:'opacity 1.5s ease', pointerEvents:'none'
+    });
+    document.body.appendChild(flash);
+    requestAnimationFrame(() => { flash.style.opacity = '1'; });
+    setTimeout(() => { flash.style.opacity = '0'; }, 900);
+    setTimeout(() => { if (flash.parentNode) document.body.removeChild(flash); }, 2500);
+
+    setTimeout(() => { doorCover.classList.add('hide'); }, 2000);
+  });
+  document.documentElement.classList.add('doors-ready');
+})();
+
+/* ========== SCROLL PROGRESS BAR ========== */
+window.addEventListener('scroll', () => {
+  const el = document.getElementById('progress-bar');
+  if (!el) return;
+  const scroll = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  el.style.width = (height > 0 ? (scroll / height) * 100 : 0) + '%';
+}, { passive: true });
+
+/* Keep each reveal at its furthest scroll position during this visit. */
+(function setupFades() {
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const open = document.getElementById('open-door-btn');
+  const hero = document.querySelectorAll('.hero-copy > *, .hero-photo');
+  const content = document.querySelectorAll([
+    '.invitation-scroll', '.invite-card > :not(.corner-ornament)', '.reveal',
+    '.reveal-left', '.reveal-right', '.couple-center',
+    '#footer > *'
+  ].join(','));
+  const pending = new Map();
+  let enabled = false;
+  let frame = 0;
+
+  function update() {
+    frame = 0;
+    const height = document.documentElement.clientHeight;
+    const atEnd = window.scrollY + height >= document.documentElement.scrollHeight - 2;
+    for (const [element, previous] of pending) {
+      const rect = element.getBoundingClientRect();
+      if (!rect.height || (rect.bottom <= 0 && previous === 0)) continue;
+      const progress = atEnd ? 1 : Math.min(1, (height * .98 - rect.top) / Math.min(190, height * .24));
+      if (progress <= previous) continue;
+      element.style.setProperty('--scroll-opacity', progress.toFixed(3));
+      if (progress < 1) {
+        pending.set(element, progress);
+      } else {
+        pending.delete(element);
+        setTimeout(() => {
+          element.removeAttribute('data-scroll-fade');
+          element.style.removeProperty('--scroll-opacity');
+        }, 700);
+      }
+    }
+  }
+  function schedule() {
+    if (pending.size && !frame) frame = requestAnimationFrame(update);
+  }
+  function enable() {
+    if (enabled) return;
+    enabled = true;
+    hero.forEach(element => element.dataset.fade = 'waiting');
+    content.forEach(element => {
+      element.setAttribute('data-scroll-fade', '');
+      pending.set(element, 0);
+    });
+    schedule();
+  }
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  window.addEventListener('pageshow', schedule);
+  document.fonts?.ready.then(schedule);
+  document.addEventListener('focusin', event => {
+    for (let el = event.target; el; el = el.parentElement) {
+      if (pending.delete(el)) el.removeAttribute('data-scroll-fade');
+    }
+  });
+  open.addEventListener('click', () => {
+    enable();
+    setTimeout(() => hero.forEach((element, index) => {
+      element.style.setProperty('--entry-delay', index * 90 + 'ms');
+      element.dataset.fade = 'entering';
+    }), 850);
+  }, { once: true });
+  motion.addEventListener('change', () => {
+    if (!motion.matches) return;
+    pending.clear();
+    content.forEach(element => element.removeAttribute('data-scroll-fade'));
+    hero.forEach(element => element.removeAttribute('data-fade'));
+    enabled = false;
+  });
+})();
+
+/* ========== COUNTDOWN TIMER ========== */
+const weddingDate = new Date('2026-12-14T11:00:00+05:30');
+
+function updateCountdown() {
+  const diff = weddingDate - new Date();
+
+  if (diff <= 0) {
+    const timer = document.getElementById('timer');
+    const done  = document.getElementById('countdownDone');
+    if (timer) timer.style.display = 'none';
+    if (done)  done.style.display  = 'block';
+    return;
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000)  / 60000);
+  const s = Math.floor((diff % 60000)    / 1000);
+
+  const set = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = String(val).padStart(2, '0');
+  };
+  set('days', d); set('hours', h); set('minutes', m);
+
+  set('seconds', s);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ========== INVITATION MUSIC ========== */
+const weddingMusic = document.getElementById('wedding-music');
+const musicButton = document.getElementById('music-btn');
+
+function updateMusicButton() {
+  const playing = !weddingMusic.paused && !weddingMusic.error;
+  musicButton.classList.toggle('playing', playing);
+  musicButton.textContent = playing ? '⏸' : '♪';
+  musicButton.title = playing ? 'Pause music' : 'Play music';
+  musicButton.setAttribute('aria-label', musicButton.title);
+}
+
+function playMusic() {
+  weddingMusic.play().catch(updateMusicButton);
+}
+
+weddingMusic.addEventListener('playing', updateMusicButton);
+weddingMusic.addEventListener('pause', updateMusicButton);
+weddingMusic.addEventListener('error', updateMusicButton);
+musicButton.addEventListener('click', () => {
+  if (weddingMusic.paused) playMusic();
+  else weddingMusic.pause();
+});
+
+// Fade door entrance elements on click
+document.getElementById('open-door-btn').addEventListener('click', function() {
+  this.classList.add('fade-out');
+  const d1 = document.getElementById('door-welcome-text');
+  const d2 = document.getElementById('door-tagline');
+  if(d1) d1.style.opacity = '0';
+  if(d2) d2.style.opacity = '0';
+});
+</script>
+</body>
+</html>
