@@ -52,7 +52,7 @@
    RESET & BASE
    ============================================================ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+html { scroll-behavior: smooth; font-size: clamp(100%, calc(93.75% + .16vw), 125%); overflow-x: hidden; }
 body {
   background: var(--ivory-warm);
   color: var(--text-ruby);
@@ -78,7 +78,7 @@ button { cursor: pointer; border: none; background: none; }
    ============================================================ */
 #music-btn {
   position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1000;
-  width: 48px; height: 48px; border-radius: 50%;
+  width: clamp(44px, 3rem, 60px); height: clamp(44px, 3rem, 60px); border-radius: 50%;
   background: var(--glass-bg);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
@@ -124,7 +124,7 @@ html:not(.doors-ready) #door-cover { display: none; }
    ============================================================ */
 .gold-divider {
   display: flex; align-items: center; justify-content: center;
-  gap: 1.5rem; margin: 2.5rem auto; max-width: 500px;
+  gap: 1.5rem; margin: 2.5rem auto; max-width: 31.25rem;
 }
 .gold-divider::before,
 .gold-divider::after {
@@ -277,7 +277,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   position: absolute;
   inset: 0 0 0 auto;
   height: 100%;
-  width: 57%;
+  width: min(57%, 150vh);
   object-fit: cover;
   object-position: center 56%;
   mask-image: linear-gradient(to right, transparent, #0003 12%, #000b 30%, black 47%);
@@ -303,7 +303,7 @@ html:not(.doors-ready) #door-cover { display: none; }
 .hero-title {
   margin: 20px 0;
   color: #ffe9b9;
-  font: italic clamp(32px, 6.72vw, 86px)/1.06 Georgia, serif;
+  font: italic clamp(2rem, min(6.72vw, 11vh), 5.375rem)/1.06 Georgia, serif;
 }
 .hero-weds {
   display: flex;
@@ -328,7 +328,7 @@ html:not(.doors-ready) #door-cover { display: none; }
    ============================================================ */
 #invitation {
   background: #fffaee;
-  padding: 7rem 2rem;
+  padding: clamp(3rem, 8vmin, 7rem) clamp(1rem, 4vw, 4rem);
   position: relative; overflow: clip;
 }
 #invitation::before {
@@ -339,7 +339,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   pointer-events: none;
 }
 .invite-card {
-  max-width: 900px; margin: 0 auto;
+  max-width: 56.25rem; margin: 0 auto;
   background: var(--gold-pale);
   border: 6px solid var(--gold-antique);
   outline: 2px solid rgba(212,175,55,0.5);
@@ -354,7 +354,7 @@ html:not(.doors-ready) #door-cover { display: none; }
 /* Both spindles frame the parchment even when motion is disabled. */
 .invitation-scroll {
   position: relative;
-  max-width: 900px;
+  max-width: 56.25rem;
   margin: 0 auto;
 }
 .invitation-scroll .invite-card {
@@ -398,18 +398,18 @@ html:not(.doors-ready) #door-cover { display: none; }
    ============================================================ */
 #events {
   background: linear-gradient(180deg, var(--section-bg) 0%, var(--parchment) 100%);
-  padding: 7rem 2rem;
+  padding: clamp(3rem, 8vmin, 7rem) clamp(1rem, 4vw, 4rem);
 }
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
   gap: 2.2rem;
-  max-width: 1200px; margin: 4rem auto 0;
+  max-width: 68rem; margin: clamp(1.75rem, 5vmin, 4rem) auto 0;
 }
 .event-card {
   background: var(--ivory-warm);
   border: 1px solid var(--gold-pale);
-  padding: 2.8rem 2.2rem;
+  padding: clamp(1.5rem, 3.3vmin, 2.8rem) clamp(1.1rem, 3vw, 2.2rem);
   position: relative;
   transition: all 0.48s cubic-bezier(0.4, 0, 0.2, 1);
   clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
@@ -446,7 +446,7 @@ html:not(.doors-ready) #door-cover { display: none; }
    ============================================================ */
 #couple {
   background: var(--deep-ruby);
-  padding: 7rem 2rem; position: relative; overflow: hidden;
+  padding: clamp(3rem, 8vmin, 7rem) clamp(1rem, 4vw, 4rem); position: relative; overflow: hidden;
 }
 #couple::before {
   content: ''; position: absolute; inset: 0;
@@ -456,23 +456,23 @@ html:not(.doors-ready) #door-cover { display: none; }
 .couple-wrapper {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 4rem; max-width: 1100px;
+  gap: clamp(1rem, 4vw, 4rem); max-width: 69rem;
   margin: 4rem auto 0; align-items: center;
 }
 .photo-frame {
-  width: clamp(190px, 26vw, 270px);
-  height: clamp(240px, 33vw, 350px);
+  width: min(100%, clamp(11rem, 26vw, 17rem));
+  aspect-ratio: 27 / 35; height: auto;
   margin: 0 auto 1.5rem; position: relative;
 }
 .photo-frame::before {
   content: ''; position: absolute;
-  top: -8px; left: -8px; width: 30px; height: 30px;
+  top: -8px; left: -8px; width: 1.875rem; height: 1.875rem;
   border: 2px solid var(--gold-leaf);
   border-right: none; border-bottom: none; z-index: 2;
 }
 .photo-frame::after {
   content: ''; position: absolute;
-  bottom: -8px; right: -8px; width: 30px; height: 30px;
+  bottom: -8px; right: -8px; width: 1.875rem; height: 1.875rem;
   border: 2px solid var(--gold-leaf);
   border-left: none; border-top: none; z-index: 2;
 }
@@ -504,7 +504,7 @@ html:not(.doors-ready) #door-cover { display: none; }
 /* ============================================================
    6. DETAILS
    ============================================================ */
-#details { background: var(--ivory-warm); padding: 7rem 2rem; }
+#details { background: var(--ivory-warm); padding: clamp(3rem, 8vmin, 7rem) clamp(1rem, 4vw, 4rem); }
 .details-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -535,7 +535,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   text-align: center;
 }
 .countdown-card {
-  max-width: 530px;
+  max-width: 33.125rem;
   margin: 0 auto;
   padding: 13px clamp(8px, 3vw, 24px) 15px;
   color: #fff4db;
@@ -547,7 +547,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   box-shadow: 0 8px 20px #5b2d2222;
 }
 .countdown-timer { display: flex; justify-content: center; }
-.time-unit { flex: 0 1 82px; display: flex; flex-direction: column; border-right: 1px solid #d5b77e; }
+.time-unit { flex: 0 1 5.125rem; display: flex; flex-direction: column; border-right: 1px solid #d5b77e; }
 .time-unit:last-child { border: 0; }
 .time-number { font-size: clamp(24px, 3vw, 34px); line-height: 1.05; font-weight: 500; font-variant-numeric: tabular-nums; }
 .time-label { font-size: clamp(12px, 2vw, 14px); }
@@ -613,16 +613,17 @@ html:not(.doors-ready) #door-cover { display: none; }
   .couple-center-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
   .couple-symbol { font-size: 2.5rem; }
   .person-card.reveal-right { order: 3; }
-  .person-card   { text-align: center; max-width: 400px; margin: 0 auto; }
+  .person-card { width: 100%; }
+  .photo-frame { width: clamp(11rem, 55vw, 16rem); }
 
   .door-welcome-text { font-size: clamp(2.2rem, 9vw, 3.5rem); text-align: center; padding: 0 1.5rem; width: 100%; }
   #open-door-btn { padding: 1rem 2.5rem; font-size: 0.85rem; letter-spacing: 0.2em; margin-top: 3vh; }
-  #music-btn { bottom: 1.2rem; left: 1.2rem; width: 42px; height: 42px; }
+  #music-btn { bottom: 1.2rem; left: 1.2rem; width: 44px; height: 44px; }
 }
 @media (max-width: 400px) {
   .details-grid { grid-template-columns: 1fr; }
 }
-@media (orientation: portrait) and (max-width: 1024px) {
+@media (orientation: portrait) {
   .door-enter-content {
     justify-content: flex-start;
     padding: max(3rem, 8svh) 1rem 1.5rem;
@@ -697,8 +698,20 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
   text-transform: none; letter-spacing: .05em; animation: none;
   box-shadow: 0 3px 15px #33051077; backdrop-filter: none;
 }
-.gate-seal { width: 48px; color: #e5c482; }
+.gate-seal { width: clamp(2rem, 5vmin, 3.5rem); color: #e5c482; }
 #door-cover.open .gate-seal { opacity: 0; transition: opacity .35s; }
+@media (orientation: landscape) and (max-height: 540px) {
+  #door-cover .door-enter-content { padding: 1rem; gap: .65rem; }
+  #door-cover .door-welcome-text { font-size: clamp(2rem, 12svh, 4rem); }
+  .hero-title { margin: .12em 0; }
+  .hero-weds { margin: .2em 0; }
+  .hero-date { margin-top: .7rem; }
+  .ty-content h2 { font-size: clamp(2.4rem, 12svh, 4rem); }
+}
+@media (min-aspect-ratio: 2/1) {
+  .hero-photo { object-position: center 43%; }
+  .ty-photo { object-position: center 43%; }
+}
 </style>
 </head>
 <body>
@@ -876,7 +889,7 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
 <!-- =================== 8. FOOTER =================== -->
 <footer id="footer">
   <svg viewBox="-155 -32 310 62" width="310" height="62" aria-hidden="true"
-       style="display:block;width:min(100%,310px);height:auto;margin:0 auto 12px"
+       style="display:block;width:clamp(10rem,40vw,19.375rem);height:auto;margin:0 auto 12px"
        fill="none" stroke="#dab26b" stroke-width="1.6" stroke-linejoin="round">
     <path d="M-146 2 H-80 M80 2 H146"/>
     <path d="M0 12 Q-22 3 -31 -14 Q-9 -13 0 8 Q9 -13 31 -14 Q22 3 0 12Z M0 7 Q-14 -6 0 -25 Q14 -6 0 7Z M-29 -1 Q-16 19 0 13 Q16 19 29 -1"/>
