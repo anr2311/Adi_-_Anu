@@ -390,7 +390,10 @@ html:not(.doors-ready) #door-cover { display: none; }
 .invite-text { font-family: var(--font-body); font-size: clamp(1rem, 2.2vw, 1.2rem); line-height: 2.2; color: var(--text-ruby); margin-bottom: 2rem; }
 .invite-parents { font-family: var(--font-subheading); font-size: clamp(0.88rem, 1.8vw, 1.05rem); color: var(--royal-red); letter-spacing: 0.04em; line-height: 2.2; margin: 2rem 0; }
 .invite-parents .parent-group { margin: 1rem 0; }
-.invite-couple-name { font-family: var(--font-names); font-size: clamp(2rem, 7.5vw, 3.5rem); color: var(--deep-red); line-height: 1.2; font-weight: 400; word-break: break-word; }
+.invite-couple { display: flex; align-items: baseline; justify-content: center; gap: clamp(0.25rem, 1.5vw, 0.75rem); white-space: nowrap; }
+.invite-couple-name { font-family: var(--font-names); font-size: clamp(2.8rem, 10vw, 4.6rem); color: var(--deep-red); line-height: 1.2; font-weight: 600; word-break: break-word; }
+.invite-couple .invite-couple-name { font-size: clamp(1.8rem, 8vw, 4.6rem); }
+.invite-couple-join { font-family: 'Philosopher', serif; font-size: 1.5rem; color: var(--text-mid); font-weight: 400; line-height: 1; }
 .invite-welcome { font-family: var(--font-accent); font-style: italic; font-size: 1.25rem; color: var(--vermilion); margin-top: 2rem; line-height: 1.8; }
 
 /* ============================================================
@@ -401,45 +404,47 @@ html:not(.doors-ready) #door-cover { display: none; }
   padding: clamp(3rem, 8vmin, 7rem) clamp(1rem, 4vw, 4rem);
 }
 .events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-  gap: 2.2rem;
-  max-width: 68rem; margin: clamp(1.75rem, 5vmin, 4rem) auto 0;
+  position: relative;
+  max-width: 68rem;
+  margin: clamp(1.75rem, 5vmin, 4rem) auto 0;
+}
+.events-grid::before {
+  content: ''; position: absolute; left: 50%; top: 1rem; bottom: 4rem;
+  width: 2px; transform: translateX(-50%);
+  background: linear-gradient(#d4b675, #ba8b41 85%, transparent);
+}
+.timeline-event { position: relative; display: flex; }
+.timeline-event + .timeline-event { margin-top: -3.125rem; }
+.timeline-event:nth-child(even) { justify-content: flex-end; }
+.timeline-event::before {
+  content: ''; position: absolute; left: 50%; top: 1.7rem; width: .75rem; height: .75rem;
+  background: #772038; border: 3px solid #f8ebcd; outline: 1px solid #be944c;
+  transform: translateX(-50%) rotate(45deg);
 }
 .event-card {
-  background: var(--ivory-warm);
-  border: 1px solid var(--gold-pale);
-  padding: clamp(1.5rem, 3.3vmin, 2.8rem) clamp(1.1rem, 3vw, 2.2rem);
-  position: relative;
-  transition: all 0.48s cubic-bezier(0.4, 0, 0.2, 1);
-  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+  position: relative; width: calc(50% - 1.7rem); padding: 1.25rem 1rem;
+  text-align: center; background: linear-gradient(130deg, #76223b, #4c0c21);
+  border: 4px double #cba45b; border-radius: 1rem .3rem;
+  box-shadow: 0 5px 15px #5e21351c; color: #ffebc0;
 }
-.event-card::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; width: 100%; height: 4px;
-  background: linear-gradient(90deg, var(--vermilion), var(--gold-leaf));
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.48s ease;
+.event-card::before {
+  content: ''; position: absolute; right: -1.85rem; top: 1.55rem;
+  width: 1.6rem; height: 1px; background: #ba8b41;
 }
-.event-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 22px 45px rgba(44,0,0,0.1);
-  background: linear-gradient(145deg, #fff8f0, #fef3e0);
+.timeline-event:nth-child(even) .event-card::before { right: auto; left: -1.85rem; }
+.event-name { font: 1.4rem/1.4 var(--font-subheading); color: #ffdda3; overflow-wrap: anywhere; margin-bottom: .3rem; }
+.event-name-kannada { font: .9rem/1.7 'Noto Serif Kannada', serif; margin-bottom: .8rem; }
+.event-date { font: .95rem/1.6 var(--font-body); border-top: 1px solid #cba45b66; padding-top: .8rem; }
+.event-desc { font: 1.3rem/1.5 var(--font-accent); margin-top: .4rem; }
+@media (max-width: 700px) {
+  .events-grid::before { left: .5rem; }
+  .timeline-event, .timeline-event:nth-child(even) { padding-left: 2rem; }
+  .timeline-event + .timeline-event { margin-top: 1.25rem; }
+  .timeline-event::before { left: .5rem; }
+  .event-card { width: 100%; }
+  .event-card::before, .timeline-event:nth-child(even) .event-card::before { left: -1.65rem; right: auto; width: 1.4rem; }
+  .event-name { font-size: 1.2rem; }
 }
-.event-card:hover::after { transform: scaleX(1); }
-.event-card .card-corner {
-  position: absolute; top: 0; right: 0;
-  width: 0; height: 0;
-  border-style: solid; border-width: 0 24px 24px 0;
-  border-color: transparent var(--gold) transparent transparent; z-index: 2;
-}
-.event-icon       { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
-.event-name       { font-family: var(--font-subheading); font-size: 1.15rem; font-weight: 600; color: var(--deep-red); letter-spacing: 0.05em; margin-bottom: 0.4rem; transition: color 0.35s; }
-.event-name-kannada { font-family: 'Noto Serif Kannada', serif; font-size: 0.82rem; color: var(--text-mid); margin-bottom: 0.7rem; transition: color 0.35s; }
-.event-date       { font-family: var(--font-body); font-size: 0.86rem; font-weight: 600; color: var(--vermilion); margin-bottom: 0.5rem; }
-.event-desc       { font-family: var(--font-accent); font-style: italic; font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; }
 
 /* ============================================================
    4. COUPLE
@@ -507,7 +512,7 @@ html:not(.doors-ready) #door-cover { display: none; }
 #details { background: var(--ivory-warm); padding: clamp(3rem, 8vmin, 7rem) clamp(1rem, 4vw, 4rem); }
 .details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem; margin: 4rem auto 0;
 }
 .detail-card:only-child { grid-column: 1 / -1; }
@@ -515,7 +520,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   background: var(--parchment);
   border: 1px solid var(--gold-pale);
   border-top: 4px solid var(--vermilion);
-  padding: 2.4rem 2rem;
+  padding: clamp(1.25rem, 3vw, 2.4rem) clamp(1rem, 2vw, 2rem);
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
@@ -599,13 +604,11 @@ html:not(.doors-ready) #door-cover { display: none; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-  .events-grid  { grid-template-columns: 1fr 1fr; }
   .details-grid { grid-template-columns: 1fr 1fr; }
   .invite-card  { padding: 2.5rem 1.5rem; }
 
 }
 @media (max-width: 600px) {
-  .events-grid  { grid-template-columns: 1fr; }
   .details-grid { grid-template-columns: 1fr; }
   .invite-card  { padding: 2.5rem 1.5rem; }
   .couple-wrapper { grid-template-columns: 1fr; gap: 2rem; }
@@ -712,6 +715,11 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
   .hero-photo { object-position: center 43%; }
   .ty-photo { object-position: center 43%; }
 }
+.venue-name { overflow-wrap: anywhere; color: var(--royal-red); font: 1.15rem/1.5 var(--font-subheading); margin-bottom: 1rem; }
+.venue-events { list-style: none; margin: 1rem 0; font-size: .95rem; line-height: 1.9; }
+.detail-card address { font-style: normal; }
+.detail-card > a { display: inline-block; margin-top: 1rem; }
+.detail-card { scroll-margin-top: 2rem; }
 </style>
 </head>
 <body>
@@ -764,14 +772,10 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
         <p class="invite-text">
           With the blessings of our family, friends and elders, we joyfully invite you and your family to our wedding.
         </p>
-        <div class="invite-parents">
-
+        <div class="invite-parents invite-couple">
           <div class="invite-couple-name">Aditya</div>
-          <br>
-          <div style="font-family:'Philosopher',serif;font-style:italic;font-size:1.1rem;color:var(--text-mid)">with</div>
-          <br>
+          <div class="invite-couple-join">&amp;</div>
           <div class="invite-couple-name">Anushree</div>
-
         </div>
         <div class="gold-divider"><span>✦</span></div>
         <p class="invite-welcome">
@@ -786,26 +790,42 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
 <!-- =================== 3. EVENTS =================== -->
 <section id="events">
   <h2 class="section-title reveal">Wedding Celebrations</h2>
-  <div class="section-subtitle reveal">13 &amp; 14 December 2026</div>
+  <div class="section-subtitle reveal">6, 13 &amp; 14 December 2026</div>
   <div class="gold-divider reveal"><span>✦</span></div>
   <div class="kannada-text reveal">ವಿವಾಹ ಕಾರ್ಯಕ್ರಮಗಳು</div>
   <div class="events-grid">
+    <article class="timeline-event">
     <div class="event-card reveal">
-      <div class="card-corner"></div>
-      <span class="event-icon">🌼</span>
+      <div class="event-name">Devarasamaradhne</div>
+      <div class="event-name-kannada" lang="kn">ದೇವರ ಸಮಾರಾಧನೆ</div>
+      <div class="event-date">Sunday, 6 December 2026</div>
+      <div class="event-desc">9:00 am</div>
+    </div>
+    </article>
+    <article class="timeline-event">
+    <div class="event-card reveal">
+      <div class="event-name">Varapooja</div>
+      <div class="event-name-kannada" lang="kn">ವರಪೂಜೆ</div>
+      <div class="event-date">Sunday, 13 December 2026</div>
+      <div class="event-desc">4:30 pm</div>
+    </div>
+    </article>
+    <article class="timeline-event">
+    <div class="event-card reveal">
       <div class="event-name">Reception</div>
       <div class="event-name-kannada" lang="kn">ಆರತಕ್ಷತೆ</div>
       <div class="event-date">Sunday, 13 December 2026</div>
       <div class="event-desc">7:30 pm onwards</div>
     </div>
+    </article>
+    <article class="timeline-event">
     <div class="event-card reveal">
-      <div class="card-corner"></div>
-      <span class="event-icon">🪔</span>
       <div class="event-name">Muhurtha</div>
       <div class="event-name-kannada" lang="kn">ವಿವಾಹ ಮುಹೂರ್ತ</div>
       <div class="event-date">Monday, 14 December 2026</div>
       <div class="event-desc">11:00 am</div>
     </div>
+    </article>
   </div>
 </section>
 
@@ -853,10 +873,21 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
   <h2 class="section-title reveal">Location</h2>
   <div class="gold-divider reveal"><span>✦</span></div>
   <div class="details-grid">
-    <div class="detail-card reveal">
-      <span class="detail-icon">📍</span>
-      <div class="detail-title">Venue</div>
-      <div class="detail-text"><strong>Shubha Mangala Kalyana Mantapa</strong><br>Veera Rani Keladi Chennamma Rd,<br>Netaji Layout, Vinoba Nagara, Shivamogga</div>
+    <div class="detail-card reveal" id="ekadantha">
+      <span class="detail-icon" aria-hidden="true">📍</span>
+      <h3 class="venue-name">Ekadantha Pravachana Mandira</h3>
+      <p class="detail-text">Devarasamaradhne</p>
+      <a href="https://maps.app.goo.gl/9bpwRy3g8ydFr7Tf9">Open in Google Maps</a>
+    </div>
+    <div class="detail-card reveal" id="shubhamangala">
+      <span class="detail-icon" aria-hidden="true">📍</span>
+      <h3 class="venue-name">Shubha Mangala Kalyana Mantapa</h3>
+      <address class="detail-text">Veera Rani Keladi Chennamma Rd,<br>Netaji Layout, Vinoba Nagara, Shivamogga</address>
+      <ul class="venue-events">
+        <li>Varapooja</li>
+        <li>Reception</li>
+        <li>Muhurtha</li>
+      </ul>
       <a href="https://www.google.com/maps/search/?api=1&amp;query=WHV5%2BXVG%2C+Shivamogga%2C+Karnataka+577204">Open in Google Maps</a>
     </div>
   </div>
