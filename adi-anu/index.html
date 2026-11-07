@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Kannada:wght@400;600;700&family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Noto+Serif+Kannada:wght@400;600;700&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    CSS VARIABLES
@@ -41,10 +41,10 @@
   --shadow-ruby:  rgba(44,0,0,0.5);
   --section-bg:   #fffcf5;
 
-  --font-heading:    'Cinzel Decorative', cursive;
-  --font-subheading: 'Cinzel', serif;
+  --font-heading:    'Playfair Display', serif;
+  --font-subheading: 'Playfair Display', serif;
   --font-body:       'Lora', serif;
-  --font-accent:     'Philosopher', serif;
+  --font-accent:     'Lora', serif;
   --font-names:      'Pinyon Script', cursive;
 }
 
@@ -269,7 +269,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   height: 100dvh;
   overflow: hidden;
   color: #ffe8ac;
-  font-family: Georgia, serif;
+  font-family: var(--font-body);
   background: radial-gradient(ellipse at 27% 47%, #752832, #360912 62%, #240609);
 }
 .hero-photo {
@@ -303,7 +303,7 @@ html:not(.doors-ready) #door-cover { display: none; }
 .hero-title {
   margin: 20px 0;
   color: #ffe9b9;
-  font: italic clamp(2rem, min(6.72vw, 11vh), 5.375rem)/1.06 Georgia, serif;
+  font: italic clamp(2rem, min(6.72vw, 11vh), 5.375rem)/1.15 var(--font-names);
 }
 .hero-weds {
   display: flex;
@@ -312,7 +312,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   gap: .58em;
   margin: .77em 0;
   color: #e0bd7b;
-  font: italic clamp(16px, 2.1vw, 26px) Georgia, serif;
+  font: italic clamp(16px, 2.1vw, 26px) var(--font-body);
 }
 .hero-weds::before, .hero-weds::after {
   content: '';
@@ -393,7 +393,7 @@ html:not(.doors-ready) #door-cover { display: none; }
 .invite-couple { display: flex; align-items: baseline; justify-content: center; gap: clamp(0.25rem, 1.5vw, 0.75rem); white-space: nowrap; }
 .invite-couple-name { font-family: var(--font-names); font-size: clamp(2.8rem, 10vw, 4.6rem); color: var(--deep-red); line-height: 1.2; font-weight: 600; word-break: break-word; }
 .invite-couple .invite-couple-name { font-size: clamp(1.8rem, 8vw, 4.6rem); }
-.invite-couple-join { font-family: 'Philosopher', serif; font-size: 1.5rem; color: var(--text-mid); font-weight: 400; line-height: 1; }
+.invite-couple-join { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--text-mid); font-weight: 400; line-height: 1; }
 .invite-welcome { font-family: var(--font-accent); font-style: italic; font-size: 1.25rem; color: var(--vermilion); margin-top: 2rem; line-height: 1.8; }
 
 /* ============================================================
@@ -499,7 +499,7 @@ html:not(.doors-ready) #door-cover { display: none; }
 
 .person-card { text-align: center; }
 .person-name   { font-family: var(--font-heading); font-size: clamp(1.3rem, 3.5vw, 2rem); color: var(--gold-pale); margin-bottom: 0.7rem; }
-.person-family { font-family: var(--font-body); font-size: 0.92rem; color: var(--gold-antique); margin-bottom: 1rem; letter-spacing: 0.1em; }
+.person-family { font-family: 'Noto Serif Kannada', serif; font-size: 0.92rem; color: var(--gold-antique); margin-bottom: 1rem; letter-spacing: 0.1em; }
 .person-quote  { font-family: var(--font-accent); font-style: italic; font-size: 1rem; color: var(--ivory-warm); line-height: 1.8; opacity: 0.85; }
 
 .couple-center { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
@@ -544,7 +544,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   margin: 0 auto;
   padding: 13px clamp(8px, 3vw, 24px) 15px;
   color: #fff4db;
-  font-family: Georgia, serif;
+  font-family: var(--font-body);
   background: linear-gradient(110deg, #681426, #84263b, #681426);
   border: 4px double #dbb963;
   outline: 1px solid #9a692c;
@@ -577,7 +577,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   position: relative; width: 46%; text-align: right;
   padding: 1rem clamp(1.1rem, 6vw, 6rem) 1rem 0;
 }
-.ty-content h2 { font-family: var(--font-names); font-size: clamp(3.8rem, 10vw, 7rem); color: #fff; text-shadow: 0 4px 22px rgba(0,0,0,0.65); margin-bottom: 1rem; font-weight: 400; }
+.ty-content h2 { font-family: var(--font-heading); font-style: italic; font-size: clamp(2.1rem, 5.5vw, 5rem); color: #fff; text-shadow: 0 4px 22px rgba(0,0,0,0.65); margin-bottom: 1rem; font-weight: 400; }
 .ty-content p  { font-family: var(--font-subheading); font-size: clamp(0.9rem, 2.5vw, 1.7rem); color: var(--gold-pale); letter-spacing: 0.1em; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
 
 /* ============================================================
@@ -664,7 +664,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   }
   #invitation, #events, #couple, #details, #countdown { padding: 3rem 1rem; }
   .events-grid, .details-grid, .couple-wrapper { margin-top: 1.75rem; }
-  .ty-content h2 { font-size: clamp(2.35rem, 9vw, 5rem); }
+  .ty-content h2 { font-size: clamp(1.7rem, 6vw, 3.5rem); }
   .ty-photo { object-position: 60% center; width: 65%; transform: translateX(-9%); }
   #thank-you-parallax { height: clamp(20rem, 78vw, 32rem); }
 }
@@ -884,9 +884,7 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
       <h3 class="venue-name">Shubha Mangala Kalyana Mantapa</h3>
       <address class="detail-text">Veera Rani Keladi Chennamma Rd,<br>Netaji Layout, Vinoba Nagara, Shivamogga</address>
       <ul class="venue-events">
-        <li>Varapooja</li>
-        <li>Reception</li>
-        <li>Muhurtha</li>
+        <li>Varapooja, Reception, Muhurtha</li>
       </ul>
       <a href="https://www.google.com/maps/search/?api=1&amp;query=WHV5%2BXVG%2C+Shivamogga%2C+Karnataka+577204">Open in Google Maps</a>
     </div>
