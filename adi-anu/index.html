@@ -426,7 +426,9 @@ html:not(.doors-ready) #door-cover { display: none; }
   text-align: center; background: linear-gradient(130deg, #76223b, #4c0c21);
   border: 4px double #cba45b; border-radius: 1rem .3rem;
   box-shadow: 0 5px 15px #5e21351c; color: #ffebc0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.event-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px #2c000021; }
 .event-card::before {
   content: ''; position: absolute; right: -1.85rem; top: 1.55rem;
   width: 1.6rem; height: 1px; background: #ba8b41;
@@ -513,22 +515,55 @@ html:not(.doors-ready) #door-cover { display: none; }
 .details-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem; margin: 4rem auto 0;
+  gap: clamp(1.25rem, 3vw, 2.5rem); max-width: 70rem; margin: 4rem auto 0;
 }
 .detail-card:only-child { grid-column: 1 / -1; }
 .detail-card {
-  background: var(--parchment);
-  border: 1px solid var(--gold-pale);
-  border-top: 4px solid var(--vermilion);
-  padding: clamp(1.25rem, 3vw, 2.4rem) clamp(1rem, 2vw, 2rem);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  background: linear-gradient(145deg, #fffdf7, var(--parchment) 70%, #f7edcf);
+  border: 1px solid var(--gold-antique); border-top: 5px solid var(--royal-red);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: 0 8px 26px rgba(44,0,0,0.08), inset 0 0 0 3px rgba(212,175,55,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; scroll-margin-top: 2rem;
 }
-.detail-card:hover { transform: translateY(-8px); box-shadow: 0 16px 38px rgba(44,0,0,0.09); }
-.detail-icon  { font-size: 2.2rem; margin-bottom: 0.8rem; display: block; }
+.detail-card::before {
+  content: ''; position: absolute; inset: 9px; border: 1px solid rgba(179,139,45,0.45);
+  pointer-events: none; z-index: 0;
+}
+.detail-card::after {
+  content: '✦'; position: absolute; top: 0.42rem; left: 50%; transform: translateX(-50%);
+  padding: 0 0.55rem; background: var(--parchment); color: var(--gold-antique);
+  font-size: 0.85rem; z-index: 2;
+}
+.detail-card > * { position: relative; z-index: 1; }
+.detail-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(44,0,0,0.13), inset 0 0 0 3px rgba(212,175,55,0.18); }
+.detail-icon {
+  width: 3.4rem; height: 3.4rem; display: grid; place-items: center;
+  margin: 0.3rem 0 1rem; border: 1px solid var(--gold-antique); border-radius: 50%;
+  background: rgba(255,249,227,0.8); box-shadow: 0 0 0 4px rgba(212,175,55,0.12);
+  font-size: 1.75rem;
+}
+.venue-kicker {
+  margin-bottom: 0.55rem; color: var(--gold-antique); font: 700 0.7rem/1.4 var(--font-subheading);
+  letter-spacing: 0.18em; text-transform: uppercase;
+}
+.venue-name { overflow-wrap: anywhere; color: var(--royal-red); font: 600 clamp(1.2rem, 2.3vw, 1.55rem)/1.4 var(--font-subheading); margin-bottom: 0.85rem; }
 .detail-title { font-family: var(--font-subheading); font-size: 0.82rem; font-weight: 700; color: var(--deep-red); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.8rem; }
 .detail-text  { font-family: var(--font-accent); font-size: 0.94rem; color: var(--text-mid); line-height: 1.75; }
 .detail-text strong { color: var(--deep-red); font-family: var(--font-subheading); }
+.detail-card address { font-style: normal; }
+.venue-events { width: 100%; list-style: none; margin: 1rem 0; padding-top: 0.8rem; border-top: 1px solid var(--gold-pale); color: var(--text-sepia); font-size: 0.9rem; font-weight: 700; line-height: 1.8; }
+.detail-card > a {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  margin-top: auto; padding: 0.75rem 1.2rem; border: 1px solid var(--gold-antique);
+  background: var(--royal-red); color: var(--gold-pale); font: 600 0.82rem/1.3 var(--font-subheading);
+  letter-spacing: 0.04em; text-decoration: none; box-shadow: 0 3px 10px rgba(44,0,0,0.14);
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.detail-card > a::after { content: '↗'; color: var(--gold-leaf); font-size: 1rem; }
+.detail-card > a:hover { background: var(--deep-red); color: #fffdf7; box-shadow: 0 5px 14px rgba(44,0,0,0.22); }
+.detail-card > a:focus-visible { outline: 3px solid var(--gold-leaf); outline-offset: 3px; }
 .hashtag-text { font-family: var(--font-heading); font-size: 1.05rem; color: var(--vermilion); }
 
 /* ============================================================
@@ -715,11 +750,6 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
   .hero-photo { object-position: center 43%; }
   .ty-photo { object-position: center 43%; }
 }
-.venue-name { overflow-wrap: anywhere; color: var(--royal-red); font: 1.15rem/1.5 var(--font-subheading); margin-bottom: 1rem; }
-.venue-events { list-style: none; margin: 1rem 0; font-size: .95rem; line-height: 1.9; }
-.detail-card address { font-style: normal; }
-.detail-card > a { display: inline-block; margin-top: 1rem; }
-.detail-card { scroll-margin-top: 2rem; }
 </style>
 </head>
 <body>
@@ -790,7 +820,7 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
 <!-- =================== 3. EVENTS =================== -->
 <section id="events">
   <h2 class="section-title reveal">Wedding Celebrations</h2>
-  <div class="section-subtitle reveal">6, 13 &amp; 14 December 2026</div>
+  <div class="section-subtitle reveal">6th, 13th &amp; 14th December 2026</div>
   <div class="gold-divider reveal"><span>✦</span></div>
   <div class="kannada-text reveal">ವಿವಾಹ ಕಾರ್ಯಕ್ರಮಗಳು</div>
   <div class="events-grid">
@@ -876,7 +906,10 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
     <div class="detail-card reveal" id="ekadantha">
       <span class="detail-icon" aria-hidden="true">📍</span>
       <h3 class="venue-name">Ekadantha Pravachana Mandira</h3>
-      <p class="detail-text">Devarasamaradhne</p>
+      <address class="detail-text">HMT Main Rd,<br>BEL Colony, Jalahalli, Bengaluru</address>
+      <ul class="venue-events">
+        <li>Devarasamaradhne</li>
+      </ul>
       <a href="https://maps.app.goo.gl/9bpwRy3g8ydFr7Tf9">Open in Google Maps</a>
     </div>
     <div class="detail-card reveal" id="shubhamangala">
