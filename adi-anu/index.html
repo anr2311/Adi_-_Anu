@@ -612,8 +612,8 @@ html:not(.doors-ready) #door-cover { display: none; }
   position: relative; width: 46%; text-align: right;
   padding: 1rem clamp(1.1rem, 6vw, 6rem) 1rem 0;
 }
-.ty-content h2 { font-family: var(--font-heading); font-style: italic; font-size: clamp(2.1rem, 5.5vw, 5rem); color: #fff; text-shadow: 0 4px 22px rgba(0,0,0,0.65); margin-bottom: 1rem; font-weight: 400; }
-.ty-content p  { font-family: var(--font-subheading); font-size: clamp(0.9rem, 2.5vw, 1.7rem); color: var(--gold-pale); letter-spacing: 0.1em; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+.ty-content h2 { font-family: var(--font-heading); font-style: italic; font-size: clamp(1.9rem, 5vw, 4.5rem); color: #fff; text-shadow: 0 4px 22px rgba(0,0,0,0.65); margin-bottom: 1rem; font-weight: 400; }
+.ty-content p  { font-family: var(--font-subheading); font-size: clamp(0.85rem, 2.25vw, 1.55rem); color: var(--gold-pale); letter-spacing: 0.1em; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
 
 /* ============================================================
    8. FOOTER
@@ -699,7 +699,7 @@ html:not(.doors-ready) #door-cover { display: none; }
   }
   #invitation, #events, #couple, #details, #countdown { padding: 3rem 1rem; }
   .events-grid, .details-grid, .couple-wrapper { margin-top: 1.75rem; }
-  .ty-content h2 { font-size: clamp(1.7rem, 6vw, 3.5rem); }
+  .ty-content h2 { font-size: clamp(1.55rem, 5.4vw, 3.15rem); }
   .ty-photo { object-position: 60% center; width: 65%; transform: translateX(-9%); }
   #thank-you-parallax { height: clamp(20rem, 78vw, 32rem); }
 }
@@ -744,7 +744,7 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
   .hero-title { margin: .12em 0; }
   .hero-weds { margin: .2em 0; }
   .hero-date { margin-top: .7rem; }
-  .ty-content h2 { font-size: clamp(2.4rem, 12svh, 4rem); }
+  .ty-content h2 { font-size: clamp(2.15rem, 10.8svh, 3.6rem); }
 }
 @media (min-aspect-ratio: 2/1) {
   .hero-photo { object-position: center 43%; }
@@ -834,14 +834,6 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
     </article>
     <article class="timeline-event">
     <div class="event-card reveal">
-      <div class="event-name">Varapooja</div>
-      <div class="event-name-kannada" lang="kn">ವರಪೂಜೆ</div>
-      <div class="event-date">Sunday, 13 December 2026</div>
-      <div class="event-desc">4:30 pm</div>
-    </div>
-    </article>
-    <article class="timeline-event">
-    <div class="event-card reveal">
       <div class="event-name">Reception</div>
       <div class="event-name-kannada" lang="kn">ಆರತಕ್ಷತೆ</div>
       <div class="event-date">Sunday, 13 December 2026</div>
@@ -881,7 +873,7 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
     <div class="person-card reveal-right">
       <div class="photo-frame">
         <button type="button" class="photo-frame-inner" aria-haspopup="dialog" aria-label="View Anushree’s full portrait">
-          <img src="./anushree-portrait.webp" alt="Portrait of Anushree" loading="lazy">
+          <img src="./anu_photo.JPG" alt="Portrait of Anushree" loading="lazy">
         </button>
       </div>
       <div class="person-name">Anushree</div>
@@ -917,7 +909,7 @@ body:has(#portrait-viewer[open]) { overflow: hidden; }
       <h3 class="venue-name">Shubha Mangala Kalyana Mantapa</h3>
       <address class="detail-text">Veera Rani Keladi Chennamma Rd,<br>Netaji Layout, Vinoba Nagara, Shivamogga</address>
       <ul class="venue-events">
-        <li>Varapooja, Reception, Muhurtha</li>
+        <li>Reception, Muhurtha</li>
       </ul>
       <a href="https://www.google.com/maps/search/?api=1&amp;query=WHV5%2BXVG%2C+Shivamogga%2C+Karnataka+577204">Open in Google Maps</a>
     </div>
@@ -1175,6 +1167,7 @@ setInterval(updateCountdown, 1000);
 const weddingMusic = document.getElementById('wedding-music');
 weddingMusic.volume = 0.6;
 const musicButton = document.getElementById('music-btn');
+let resumeMusicOnReturn = false;
 
 function updateMusicButton() {
   const playing = !weddingMusic.paused && !weddingMusic.error;
@@ -1194,6 +1187,15 @@ weddingMusic.addEventListener('error', updateMusicButton);
 musicButton.addEventListener('click', () => {
   if (weddingMusic.paused) playMusic();
   else weddingMusic.pause();
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    resumeMusicOnReturn = !weddingMusic.paused;
+    if (resumeMusicOnReturn) weddingMusic.pause();
+  } else if (resumeMusicOnReturn) {
+    resumeMusicOnReturn = false;
+    playMusic();
+  }
 });
 
 // Fade door entrance elements on click
